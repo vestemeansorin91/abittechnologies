@@ -1,0 +1,42 @@
+<div class="add-user">
+  <form [formGroup]="userForm">
+    <div class="add-user-control">
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" formControlName="firstName" />
+    </div>
+
+    <div class="add-user-control">
+      <label for="lastName">Last Name</label>
+      <input id="lastName" type="text" formControlName="lastName" />
+    </div>
+
+    <div class="add-user-control">
+      <label for="email">E-mail</label>
+      <input id="email" type="text" formControlName="email" />
+    </div>
+
+    <div class="add-user-control">
+      <label>Sex</label>
+      <div>
+        <input
+          id="sex-male"
+          type="radio"
+          formControlName="sex"
+          [value]="gender.MALE"
+        />
+        <label for="sex-male">Male</label>
+      </div>
+
+      <div>
+        <input
+          id="sex-female"
+          type="radio"
+          formControlName="sex"
+          [value]="gender.FEMALE"
+        />
+        <label for="sex-female">Female</label>
+      </div>
+    </div>
+    <button (click)="onCreateUser()">Create user</button>
+  </form>
+</div>

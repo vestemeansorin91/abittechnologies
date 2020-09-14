@@ -1,0 +1,24 @@
+<div *ngIf="users && users.length; else noUsers">
+  <h2>Users</h2>
+
+  <table>
+    <thead>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>E-mail Name</td>
+      <td>Sex Name</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.sex }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsers>
+  <div class="no-users">No users</div>
+</ng-template>
