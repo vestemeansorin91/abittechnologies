@@ -1,9 +1,10 @@
 {
   "name": "abittechnologies",
   "version": "0.0.0",
+  "author": "Sorin Vestemean",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4321",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
