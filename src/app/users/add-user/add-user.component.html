@@ -1,42 +1,41 @@
 <div class="add-user">
+  <h2>Create user</h2>
   <form [formGroup]="userForm">
-    <div class="add-user-control">
-      <label for="firstName">First Name</label>
-      <input id="firstName" type="text" formControlName="firstName" />
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label for="firstName">First Name</mat-label>
+      <input matInput id="firstName" type="text" formControlName="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="lastName">Last Name</mat-label>
+      <input matInput id="lastName" type="text" formControlName="lastName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="email">E-mail</mat-label>
+      <input matInput id="email" type="text" formControlName="email" />
+    </mat-form-field>
 
     <div class="add-user-control">
-      <label for="lastName">Last Name</label>
-      <input id="lastName" type="text" formControlName="lastName" />
+      <mat-label>Sex</mat-label>
+
+      <mat-radio-group aria-label="Select an option" formControlName="sex">
+        <mat-radio-button [value]="gender.MALE">Male</mat-radio-button>
+        <mat-radio-button [value]="gender.FEMALE">Female</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    <div class="add-user-control">
-      <label for="email">E-mail</label>
-      <input id="email" type="text" formControlName="email" />
-    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onCreateUser()"
+        [disabled]="!userForm.valid"
+      >
+        Create user
+      </button>
 
-    <div class="add-user-control">
-      <label>Sex</label>
-      <div>
-        <input
-          id="sex-male"
-          type="radio"
-          formControlName="sex"
-          [value]="gender.MALE"
-        />
-        <label for="sex-male">Male</label>
-      </div>
-
-      <div>
-        <input
-          id="sex-female"
-          type="radio"
-          formControlName="sex"
-          [value]="gender.FEMALE"
-        />
-        <label for="sex-female">Female</label>
-      </div>
+      <button mat-raised-button (click)="onCloseModal()">Back</button>
     </div>
-    <button (click)="onCreateUser()">Create user</button>
   </form>
 </div>

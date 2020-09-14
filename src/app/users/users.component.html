@@ -1,2 +1,5 @@
-<bit-add-user (userCreated)="newUserCreated($event)"></bit-add-user>
+<button mat-button color="primary" (click)="onAddUser()" class="add-user-btn">
+  Add user
+</button>
+
 <bit-list-users [users]="users"></bit-list-users>
