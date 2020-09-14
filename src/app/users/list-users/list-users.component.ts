@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { User } from 'src/app/shared/entities/user';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'bit-list-users',
@@ -7,5 +7,9 @@ import { User } from 'src/app/shared/entities/user';
   styleUrls: ['./list-users.component.scss'],
 })
 export class ListUsersComponent {
-  @Input() users: User[];
+  constructor(public usersService: UsersService) {}
+
+  get users() {
+    return this.usersService.users;
+  }
 }

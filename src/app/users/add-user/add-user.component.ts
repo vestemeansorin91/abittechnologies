@@ -24,14 +24,13 @@ export class AddUserComponent {
   }
 
   public onCreateUser() {
-    // TODO: i will save it to localStorage
-    // this.usersService.createUser();
-    this.onCloseModal(this.userForm.value);
-    this.userForm.reset();
+    this.usersService.createUser(this.userForm.value);
+    this.onCloseModal();
   }
 
-  public onCloseModal(result = null) {
-    this.dialogRef.close(result);
+  public onCloseModal() {
+    this.userForm.reset();
+    this.dialogRef.close();
   }
 
   private buildForm() {
