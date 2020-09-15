@@ -19,10 +19,13 @@
     <div class="add-user-control">
       <mat-label>Sex</mat-label>
 
-      <mat-radio-group aria-label="Select an option" formControlName="sex">
-        <mat-radio-button [value]="gender.MALE">Male</mat-radio-button>
-        <mat-radio-button [value]="gender.FEMALE">Female</mat-radio-button>
-      </mat-radio-group>
+      <div *ngFor="let item of genders">
+        <mat-checkbox
+          [checked]="selectedGender === item"
+          (change)="onSexSelected(item)"
+          >{{ item }}
+        </mat-checkbox>
+      </div>
     </div>
 
     <div class="action-buttons">

@@ -12,8 +12,10 @@ import { UsersService } from '../users.service';
 })
 export class AddUserComponent {
   @Output() userCreated: EventEmitter<User> = new EventEmitter<User>(null);
-  gender: typeof Gender = Gender;
   userForm: FormGroup;
+
+  genders: string[] = Object.values(Gender);
+  selectedGender: Gender = Gender.MALE;
 
   constructor(
     private fb: FormBuilder,
@@ -21,6 +23,11 @@ export class AddUserComponent {
     public dialogRef: MatDialogRef<AddUserComponent>
   ) {
     this.buildForm();
+  }
+
+  onSexSelected(gender: Gender) {
+    this.selectedGender = gender;
+    this.userForm.get('sex').patchValue(gender);
   }
 
   public onCreateUser() {
@@ -38,7 +45,7 @@ export class AddUserComponent {
       firstName: this.fb.control('', Validators.required),
       lastName: this.fb.control('', Validators.required),
       email: this.fb.control('', [Validators.required, Validators.email]),
-      sex: this.fb.control(this.gender.MALE, Validators.required),
+      sex: this.fb.control(this.selectedGender, Validators.required),
     });
   }
 }
